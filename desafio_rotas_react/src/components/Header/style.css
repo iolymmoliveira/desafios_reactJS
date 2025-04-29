@@ -1,0 +1,29 @@
+#ds-header {
+  background-color: var(--ds-color-bg-primary);
+  color: var(--ds-color-font-primary);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ds-container-header {
+  padding: 25px 160px;
+  justify-content: space-between;
+}
+
+.ds-menu-left nav {
+  margin-right: 20px;
+}
+
+.ds-menu-left nav a {
+  text-decoration: none;
+  color: var(--ds-color-font-primary);
+}
+
+.ds-menu-left nav a:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.ds-menu-right-img {
+  width: 30px;
+}
