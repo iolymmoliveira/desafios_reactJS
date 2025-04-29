@@ -1,7 +1,9 @@
 :root {
   --ds-color-bg-primary: #2D28FF;
+  --ds-color-bg-secondary: #FFFFFF;
 
   --ds-color-font-primary: #FFFFFF;
+  --ds-color-font-secondary: #000000;
 }
 
 * {

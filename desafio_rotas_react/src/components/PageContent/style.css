@@ -1,0 +1,10 @@
+#ds-page-content {
+  padding: 20px 160px;
+  background-color: var(--ds-color-bg-secondary);
+}
+
+#ds-page-content h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ds-color-font-secondary);
+}
