@@ -1,9 +1,14 @@
 :root {
   --ds-color-bg-primary: #2D28FF;
   --ds-color-bg-secondary: #FFFFFF;
+  --ds-color-bg-tertiary: #e36309;
+  --ds-color-bg-quaternary: #A72C38;
 
   --ds-color-font-primary: #FFFFFF;
   --ds-color-font-secondary: #000000;
+  --ds-color-font-tertiary: #FDC543;
+
+  --ds-color-border-primary: #60376b;
 }
 
 * {
@@ -23,4 +28,12 @@
 
 .justify-center {
   justify-content: center;
+}
+
+.active {
+  font-weight: 700;
+}
+
+.no-active {
+  font-weight: 400;
 }
