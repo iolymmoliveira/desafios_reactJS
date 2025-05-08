@@ -1,4 +1,5 @@
-import "./style.css"
+import { NavLink, useNavigate } from "react-router-dom";
+import "./style.css";
 
 type Props = {
   content_menu: {
@@ -9,10 +10,11 @@ type Props = {
     src: string;
     alt: string;
     href: string;
-  }
-}
+  };
+};
 
-export default function Header({content_menu, icon} : Props) {
+export default function Header({ content_menu, icon }: Props) {
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,20 +24,25 @@ export default function Header({content_menu, icon} : Props) {
             {content_menu.map((item, index) => {
               return (
                 <nav key={index}>
-                  <a href={`/${item.href}`}>{item.label}</a>
+                  <NavLink to={`/${item.href}`}>{item.label}</NavLink>
                 </nav>
-              )
+              );
             })}
           </div>
           <div className="ds-menu-right">
             <nav>
-              <a href={icon.href}>
-                <img src={icon.src} alt={icon.alt} className="ds-menu-right-img"/>
-              </a>
+              <img
+                src={icon.src}
+                alt={icon.alt}
+                className="ds-menu-right-img"
+                onClick={() => {
+                  navigate(icon.href);
+                }}
+              />
             </nav>
           </div>
         </div>
       </header>
     </>
-  )
+  );
 }
