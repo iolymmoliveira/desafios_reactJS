@@ -1,10 +1,10 @@
 import "./style.css";
 
 type Props = {
-  title: string;
+  title?: string;
 }
 
-export default function PageContent({title} : Props) {
+export default function HomeContent({title} : Props) {
 
   return (
     <>
