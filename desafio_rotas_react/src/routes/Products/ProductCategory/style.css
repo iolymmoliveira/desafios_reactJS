@@ -1,0 +1,27 @@
+.ds-product-category {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 20px 160px;
+}
+
+.ds-product-category nav {
+  background-color: #C7C7C7;
+  padding: 20px 21px;
+}
+
+.ds-list-category {
+  list-style-type: none;
+}
+
+.ds-item-category {
+  margin-right: 20px;
+}
+
+.ds-item-category a {
+  color: var(--ds-color-font-secondary);
+  text-decoration: none;
+}
+
+.ds-item-category a:hover {
+  cursor: pointer;
+}

@@ -1,8 +1,9 @@
 :root {
   --ds-color-bg-primary: #2D28FF;
   --ds-color-bg-secondary: #FFFFFF;
-  --ds-color-bg-tertiary: #e36309;
-  --ds-color-bg-quaternary: #A72C38;
+
+  --ds-color-bg-not-found-primary: #e36309;
+  --ds-color-bg-not-found-secondary: #A72C38;
 
   --ds-color-font-primary: #FFFFFF;
   --ds-color-font-secondary: #000000;
@@ -36,4 +37,22 @@
 
 .no-active {
   font-weight: 400;
+}
+
+.mr-160 {
+  margin-right: 160px;
+}
+
+.ml-160 {
+  margin-left: 160px;
+}
+
+.ds-list-products {
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ds-list-products li {
+  margin-bottom: 5px;
 }
