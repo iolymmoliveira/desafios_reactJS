@@ -1,0 +1,21 @@
+#ds-not-found {
+  background-image: radial-gradient(var(--ds-color-bg-not-found-primary) 10px, transparent 1px), radial-gradient(var(--ds-color-bg-not-found-secondary) 10px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  height: 100vh;
+  padding: 50px 50px;
+  justify-content: space-between;
+}
+
+.ds-msg-left,
+.ds-msg-right {
+  color: var(--ds-color-font-primary);
+  font-size: 90px;
+  font-weight: 900;
+}
+
+.animation-not-found {
+  width: 40%;
+  border: 12px solid var(--ds-color-border-primary);
+  border-radius: 16px;
+}
