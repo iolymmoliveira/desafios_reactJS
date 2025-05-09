@@ -38,7 +38,9 @@ function App() {
                   textRight={textRight}
                 />
               }
-            />
+            >
+              <Route index element={<Navigate to="/home" />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
