@@ -1,0 +1,34 @@
+#dsgh-home-body {
+  background-color: var(--dsgh-bg-color-primary);
+}
+
+.dsgh-home-body-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 27px;
+}
+
+.dsgh-header-container h1{
+  font-size: 32px;
+  font-weight:700;
+  line-height: 64px;
+  letter-spacing: 2%;
+}
+
+.dsgh-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .dsgh-home-body-container {
+    padding: 20px 41px;
+  }
+
+  .dsgh-header-container h1 {
+  font-size: 48px;
+  }
+}

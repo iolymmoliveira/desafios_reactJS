@@ -1,0 +1,23 @@
+#dsgh-navbar {
+  background-color: var(--dsgh-bg-color-secondary);
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.dsgh-link {
+  color: var(--dsgh-bg-color-primary);
+  text-decoration: none;
+}
+
+.dsgh-link:hover {
+  cursor: pointer;
+  color: var(--dsgh-color-secondary);
+}
+
+.dsgh-title {
+  line-height: 32px;
+  height: min-content;
+  text-align: left;
+}

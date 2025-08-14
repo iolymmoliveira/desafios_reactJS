@@ -1,23 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-weight-title: 500;
+  --font-size-title: 24px;
+  --font-line-height-title: 32px;
+  
+  --font-weight-regular: 400;
+  
+  --dsgh-bg-color-primary: #ffffff;
+  --dsgh-bg-color-secondary: #1890FF;
+  
+  --dsgh-color-primary: #fff;
+  --dsgh-color-secondary: rgb(0, 0, 0);
 
-  background-color: #000000;
-  color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --dsgh-bg-btn-primary: #1890FF;
 }
 
-body {
+* {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   min-width: 320px;
-  min-height: 100vh;
-  display: flex;
 }
 
+.pd-15 {
+  padding: 15px;
+} 
+
+.dsgh-btn-primary {
+  background-color: var(--dsgh-bg-btn-primary);
+  padding: 16px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--dsgh-bg-btn-primary);
+  color: var(--dsgh-color-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 24px;
+}

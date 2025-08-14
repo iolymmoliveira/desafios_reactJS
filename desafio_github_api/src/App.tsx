@@ -1,32 +1,33 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HomeBodyProps } from "./utils/data";
+import Home from "./routes/Home";
+import Search from "./routes/Search";
+import Profiles from "./routes/Profiles";
+import HomeBody from "./routes/HomeBody";
 
 function App() {
-
-  const [count, setCount] = useState(0);
-
-  function handleIncrement() {
-    setCount(count + 1);
-  }
-
-  function handleDecrement() {
-    setCount(count - 1);
-  }
-
   return (
     <>
-      <div>
-        Projeto em 'Branco'
-
-        <h2>Contador 
-          <span> = {count}</span>
-        </h2>
-      </div>
-      <div>
-        <button onClick={handleIncrement}> + </button>
-        <button onClick={handleDecrement}> - </button>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} >
+            <Route
+              index
+              element={
+                <HomeBody
+                  title={HomeBodyProps.title}
+                  description={HomeBodyProps.description}
+                />
+              }
+            />
+            <Route path="/search" element={<Search />} />
+            <Route path="/profiles" element={<Profiles />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
