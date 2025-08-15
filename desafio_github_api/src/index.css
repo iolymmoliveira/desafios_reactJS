@@ -9,9 +9,11 @@
   
   --dsgh-bg-color-primary: #ffffff;
   --dsgh-bg-color-secondary: #1890FF;
+  --dsgh-bg-color-tertiary: #E6F7FF;
   
   --dsgh-color-primary: #fff;
   --dsgh-color-secondary: rgb(0, 0, 0);
+  --dsgh-color-tertiary: #BFBFBF;
 
   --dsgh-bg-btn-primary: #1890FF;
 }
@@ -21,7 +23,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  min-width: 320px;
 }
 
 .pd-15 {
@@ -30,11 +31,11 @@
 
 .dsgh-btn-primary {
   background-color: var(--dsgh-bg-btn-primary);
-  padding: 16px 8px;
-  border-radius: 16px;
+  border-radius: 4px;
   border: 1px solid var(--dsgh-bg-btn-primary);
   color: var(--dsgh-color-primary);
   font-weight: var(--font-weight-regular);
   font-size: 16px;
   line-height: 24px;
+  width: fit-content;
 }

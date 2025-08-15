@@ -10,17 +10,15 @@
   gap: 27px;
 }
 
-.dsgh-header-container h1{
+.dsgh-header-container h1 {
   font-size: 32px;
   font-weight:700;
   line-height: 64px;
   letter-spacing: 2%;
 }
 
-.dsgh-button-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dsgh-btn-primary {
+  padding: 8px 18px;
 }
 
 @media (min-width: 768px) {
@@ -29,6 +27,6 @@
   }
 
   .dsgh-header-container h1 {
-  font-size: 48px;
+    font-size: 48px;
   }
 }

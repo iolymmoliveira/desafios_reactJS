@@ -13,7 +13,6 @@
 
 .dsgh-link:hover {
   cursor: pointer;
-  color: var(--dsgh-color-secondary);
 }
 
 .dsgh-title {
