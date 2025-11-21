@@ -24,6 +24,10 @@
   margin: 16px 0 24px 0;
 }
 
+.dsgh-search-input:focus {
+  outline: none;
+}
+
 .dsgh-search-input::placeholder {
   color: var(--dsgh-color-tertiary);
   font-size: 14px;
