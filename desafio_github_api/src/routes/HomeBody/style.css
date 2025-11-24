@@ -14,7 +14,16 @@
   font-size: 32px;
   font-weight:700;
   line-height: 64px;
-  letter-spacing: 2%;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.dsgh-header-container p {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  line-height: 40px;
+  color: #7E7E7E;
+  letter-spacing: 0.2px;
 }
 
 .dsgh-btn-primary {

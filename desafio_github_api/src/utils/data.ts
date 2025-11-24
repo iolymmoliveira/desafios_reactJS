@@ -6,7 +6,6 @@ const HomeBodyProps = {
 
 const textButton = "Começar";
 
-
 export { 
   HomeBodyProps, 
   textButton 

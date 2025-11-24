@@ -1,21 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --font-weight-title: 500;
   --font-size-title: 24px;
+  --font-size-title-lg: 38px;
+
+  --font-size-small: 16px;
+  --font-size-regular: 20px;
+  
   --font-line-height-title: 32px;
+  --font-line-height-title-lg: 46px;
   
   --font-weight-regular: 400;
+  --font-weight-title: 500;
+  --font-weight-bold: 700;
   
   --dsgh-bg-color-primary: #ffffff;
   --dsgh-bg-color-secondary: #1890FF;
   --dsgh-bg-color-tertiary: #E6F7FF;
+  --dsgh-bg-color-quaternary: #F5F5F5;
   
   --dsgh-color-primary: #fff;
-  --dsgh-color-secondary: rgb(0, 0, 0);
+  --dsgh-color-secondary: #262626;
   --dsgh-color-tertiary: #BFBFBF;
+  --dsgh-color-quaternary: #1890FF;
 
   --dsgh-bg-btn-primary: #1890FF;
+
+  --dsgh-border-primary: #D9D9D9;
 }
 
 * {
