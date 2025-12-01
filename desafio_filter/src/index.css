@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --ds-bg-primary: #55BC04;
-  --ds-bg-secondary: #FFFFFF;
-  --ds-bg-tertiary: #C2C2C2;
+  --dsf-bg-primary: #55BC04;
+  --dsf-bg-secondary: #FFFFFF;
+  --dsf-bg-tertiary: #C2C2C2;
 
-  --ds-color-primary: #FFFFFF;
-  --ds-color-secondary: #C2C2C2;
-  --ds-color-tertiary: #55BC04;
+  --dsf-color-primary: #FFFFFF;
+  --dsf-color-secondary: #C2C2C2;
+  --dsf-color-tertiary: #55BC04;
 
-  --ds-font-title: 700 20px/1 Roboto;
-  --ds-font-subtitle: 700 12px/1 Roboto;
+  --dsf-font-title: 700 20px/1 Roboto;
+  --dsf-font-subtitle: 700 12px/1 Roboto;
+  --dsf-font-regular: 400 16px/1 Roboto;
+
+  --dsf-border-primary: 1px solid #C2C2C2;
+  --dsf-border-secondary: 1px solid #55BC04;
 }
 
 * {
