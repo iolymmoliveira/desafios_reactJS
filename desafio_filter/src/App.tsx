@@ -1,11 +1,10 @@
+import Header from "./assets/components/Header"
 
 function App() {
   
   return (
     <>
-      <div>
-        Dasafio Filter
-      </div>
+      <Header/>
     </>
   )
 }

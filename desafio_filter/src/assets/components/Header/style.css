@@ -1,0 +1,17 @@
+.ds-header-container {
+  background-color: var(--ds-bg-primary);
+  height: 70px;
+  padding: 24px 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ds-color-primary);
+}
+
+.ds-header-container h1 {
+  font: var(--ds-font-title);
+}
+
+.ds-header-quantity {
+  font: var(--ds-font-subtitle);
+}

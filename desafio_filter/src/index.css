@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --ds-bg-primary: #55BC04;
+  --ds-bg-secondary: #FFFFFF;
+  --ds-bg-tertiary: #C2C2C2;
+
+  --ds-color-primary: #FFFFFF;
+  --ds-color-secondary: #C2C2C2;
+  --ds-color-tertiary: #55BC04;
+
+  --ds-font-title: 700 20px/1 Roboto;
+  --ds-font-subtitle: 700 12px/1 Roboto;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
