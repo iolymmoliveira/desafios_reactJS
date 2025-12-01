@@ -1,0 +1,39 @@
+.dsf-filter-container {
+  background-color: var(--ds-bg-secondary);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 5px;
+  border: var(--dsf-border-primary);
+  gap: 20px;
+}
+
+.dsf-input,
+.dsf-filter-button {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  font: var(--dsf-font-regular);
+}
+
+.dsf-input {
+  border: var(--dsf-border-primary);
+}
+
+.dsf-input::placeholder {
+  color: var(--dsf-color-secondary)
+}
+
+.dsf-input:focus {
+  outline: none;
+  border: var(--dsf-border-primary);
+}
+
+.dsf-filter-button {
+  background-color: var(--dsf-bg-primary);
+  color: var(--dsf-color-primary);
+  border: none;
+  cursor: pointer;
+}
+
