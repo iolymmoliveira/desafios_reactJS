@@ -1,0 +1,7 @@
+.dsf-listing-body-container {
+  background-color: var(--ds-bg-tertiary);
+  padding: 20px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
