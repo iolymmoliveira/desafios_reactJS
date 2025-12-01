@@ -2,9 +2,9 @@ import './style.css';
 
 export default function Header() {
   return (
-      <nav className="ds-header-container">
+      <nav className="dsf-header-container">
         <h1>DSFilter</h1>
-        <div className="ds-header-quantity">
+        <div className="dsf-header-quantity">
           produto(s)
         </div>
       </nav>

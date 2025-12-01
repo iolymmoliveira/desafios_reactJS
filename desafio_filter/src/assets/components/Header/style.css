@@ -1,17 +1,17 @@
-.ds-header-container {
-  background-color: var(--ds-bg-primary);
+.dsf-header-container {
+  background-color: var(--dsf-bg-primary);
   height: 70px;
   padding: 24px 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--ds-color-primary);
+  color: var(--dsf-color-primary);
 }
 
-.ds-header-container h1 {
-  font: var(--ds-font-title);
+.dsf-header-container h1 {
+  font: var(--dsf-font-title);
 }
 
-.ds-header-quantity {
-  font: var(--ds-font-subtitle);
+.dsf-header-quantity {
+  font: var(--dsf-font-subtitle);
 }
