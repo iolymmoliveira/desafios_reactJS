@@ -1,6 +1,13 @@
-# 🛒 DSFilter - Desafio de Filtragem de Produtos com React e Context API
+# <center>🛒 DSFilter </center>
 
-Este projeto implementa o desafio **DSFilter** do DevSuperior, que consiste em desenvolver uma tela de listagem e filtragem de produtos utilizando o React, TypeScript e a Context API para gerenciamento de estado global.
+<p align='center'>
+   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
+   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+</p>
+
+Este projeto implementa o desafio **DSFilter** da Formação ReactJS Professional proposto pela [DevSuperior](https://devsuperior.com.br/), que consiste em desenvolver uma tela de listagem e filtragem de produtos utilizando o React, TypeScript e a Context API para gerenciamento de estado global.
 
 O objetivo principal é criar um sistema que permite ao usuário filtrar produtos por preço mínimo e máximo, com o total de produtos listados sendo exibido em tempo real no cabeçalho da aplicação.
 
@@ -28,5 +35,38 @@ Este projeto demonstra as seguintes habilidades e tecnologias essenciais do ecos
 * **Filtragem Dinâmica:** Permite informar, opcionalmente, preço mínimo e preço máximo, resultando na exibição dos produtos conforme os critérios.
     * Valores Padrão: Se o preço mínimo não for informado, usa `0`. Se o preço máximo não for informado, usa `Number.MAX_VALUE`.
 * **Atualização do Cabeçalho:** O número de produtos listados é atualizado dinamicamente no cabeçalho (componente `Header`) a cada nova filtragem.
+
+---
+## 📸 Screenshots da Aplicação
+
+### 
+
+![FrontEnd](public/ds_filter_01.png)
+
+###
+
+![FrontEnd](public/ds_filter_02.png)
+
+---
+
+## 🚀 Como Executar o Projeto
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone git@github.com:iolymmoliveira/desafios_reactJS.git
+    cd desafio_filter
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    yarn
+    ```
+
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    yarn dev
+    ```
+4.  **Abra o projeto no navegador:**
+O projeto será iniciado em `http://localhost:5173`.
 
 ---
