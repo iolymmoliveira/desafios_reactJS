@@ -1,7 +1,18 @@
 .dsf-listing-body-container {
-  background-color: var(--ds-bg-tertiary);
+  background-color: var(--dsf-bg-tertiary);
   padding: 20px 120px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.dsf-listing-body-items {
+  background-color: var(--dsf-bg-secondary);
+  padding: 20px;
+  border: var(--dsf-border-primary);
+  border-radius: 5px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
