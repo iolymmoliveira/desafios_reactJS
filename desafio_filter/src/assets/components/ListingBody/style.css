@@ -4,9 +4,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 100vh;
 }
 
-.dsf-listing-body-items {
+.dsf-listing-body-items,
+.dsf-listing-body-warning {
   background-color: var(--dsf-bg-secondary);
   padding: 20px;
   border: var(--dsf-border-primary);
@@ -15,4 +17,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.dsf-listing-body-warning {
+  font: var(--dsf-font-subtitle);
+  color: var(--dsf-color-quaternary);
 }
