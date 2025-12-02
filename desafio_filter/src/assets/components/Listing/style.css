@@ -1,0 +1,20 @@
+.dsf-listing-item {
+  border: var(--dsf-border-secondary);
+  border-radius: 5px;
+  padding: 10px;
+  height: 53px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.dsf-listing-item-name {
+  font: var(--dsf-font-regular-small);
+  color: var(--dsf-color-quaternary);
+}
+
+.dsf-listing-item-price {
+  font: var(--dsf-font-regular-bold);
+  color: var(--dsf-color-tertiary);
+}

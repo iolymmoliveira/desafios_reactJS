@@ -1,5 +1,5 @@
 .dsf-filter-container {
-  background-color: var(--ds-bg-secondary);
+  background-color: var(--dsf-bg-secondary);
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -35,5 +35,7 @@
   color: var(--dsf-color-primary);
   border: none;
   cursor: pointer;
+  font: var(--dsf-font-regular-bold);
+  text-align: center;
 }
 

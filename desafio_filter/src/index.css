@@ -8,10 +8,13 @@
   --dsf-color-primary: #FFFFFF;
   --dsf-color-secondary: #C2C2C2;
   --dsf-color-tertiary: #55BC04;
+  --dsf-color-quaternary: #6F6F6F;
 
   --dsf-font-title: 700 20px/1 Roboto;
   --dsf-font-subtitle: 700 12px/1 Roboto;
   --dsf-font-regular: 400 16px/1 Roboto;
+  --dsf-font-regular-small: 400 12px/1 Roboto;
+  --dsf-font-regular-bold: 700 16px/1 Roboto;
 
   --dsf-border-primary: 1px solid #C2C2C2;
   --dsf-border-secondary: 1px solid #55BC04;

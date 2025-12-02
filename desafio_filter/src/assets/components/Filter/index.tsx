@@ -23,7 +23,7 @@ export default function Filter({ onFilter }: Props) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(filters);
+    
     onFilter(
       filters.minPrice || 0,
       filters.maxPrice || Number.MAX_VALUE
