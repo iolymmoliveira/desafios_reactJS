@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# 🛒 DSFilter - Desafio de Filtragem de Produtos com React e Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto implementa o desafio **DSFilter** do DevSuperior, que consiste em desenvolver uma tela de listagem e filtragem de produtos utilizando o React, TypeScript e a Context API para gerenciamento de estado global.
 
-Currently, two official plugins are available:
+O objetivo principal é criar um sistema que permite ao usuário filtrar produtos por preço mínimo e máximo, com o total de produtos listados sendo exibido em tempo real no cabeçalho da aplicação.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 💻 Habilidades Técnicas e Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este projeto demonstra as seguintes habilidades e tecnologias essenciais do ecossistema front-end moderno:
 
-## Expanding the ESLint configuration
+* Construção de uma Single Page Application (SPA) modular e componentizada com ReactJS.
+* Utilização de tipagem estática para maior segurança e robustez do código (ex: `ProductDTO`, tipos de contexto e props).
+* **Gerenciamento de Estado Local (`useState`):** Gerenciamento do estado da lista de produtos e dos parâmetros de filtro (`minPrice`, `maxPrice`) dentro do componente `ListingBody`.
+* **Gerenciamento de Efeitos Colaterais (`useEffect`):** Utilização de `useEffect` para reagir a mudanças nos parâmetros de filtro e realizar a busca de produtos (`findByPrice`).
+* **Context API:** Implementação de um estado global para o **número de produtos listados** (`ProductCounterContext`). Isso permite que o `Header` observe e reaja às mudanças na listagem feitas no `ListingBody`.
+* **Comunicação entre Componentes:**
+    * **Comunicação Pai-Filho:** Passagem da lista de produtos como `Prop` para o card de listagem (`Listing`).
+    * **Comunicação Filho-Pai (Eventos):** O componente `Filter` emite um evento `onFilter(min, max)` para notificar o componente pai (`ListingBody`) sobre os novos critérios de filtragem.
+* **Renderização Condicional:** Exibição da lista de produtos ou da mensagem "Nenhum produto encontrado" baseada no estado da lista.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Funcionalidades
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **Listagem de Produtos:** O sistema informa nome e preço de todos produtos, ordenados por preço.
+* **Filtragem Dinâmica:** Permite informar, opcionalmente, preço mínimo e preço máximo, resultando na exibição dos produtos conforme os critérios.
+    * Valores Padrão: Se o preço mínimo não for informado, usa `0`. Se o preço máximo não for informado, usa `Number.MAX_VALUE`.
+* **Atualização do Cabeçalho:** O número de produtos listados é atualizado dinamicamente no cabeçalho (componente `Header`) a cada nova filtragem.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
