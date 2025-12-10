@@ -1,0 +1,36 @@
+footer {
+  background-color: var(--ds-color-bg-secondary);
+  color: var(--ds-color-font-primary);
+  height: 120px;
+  padding: 34px 70px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ds-container-footer {
+  min-width: 180px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 52px;
+}
+
+.ds-social-media,
+.ds-address {
+  height: 21px;
+}
+
+.ds-address {
+  font-style: italic;
+}
+
+@media (min-width:576px) {
+  footer {
+    padding: 50px 120px;
+  }
+
+  .ds-container-footer {
+    max-width: 960px;
+    flex-direction: row;
+  }
+}

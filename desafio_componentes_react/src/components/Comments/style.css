@@ -1,0 +1,74 @@
+#ds-comments {
+  background-color: var(--ds-color-bg-tertiary);
+  padding: 25px 25px 0 25px;
+}
+
+.ds-comments-container {
+  flex-direction: column;
+}
+
+.ds-comments-title {
+  color: var(--ds-color-font-secondary);
+  font-size: 20px;
+  font-weight: 700;
+  width: max-content;
+  text-align: center;
+  margin: 0 auto 25px auto;
+}
+
+.ds-comments-title {
+  height: 30px;
+}
+
+.ds-comments-card {
+  background-color: var(--ds-color-bg-primary);
+  color: var(--ds-color-font-tertiary);
+  border: 1px solid var(--ds-color-border-primary);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  padding: 25px 20px;
+  height: 146px;
+  min-width: 280px;
+}
+
+.ds-comments-card p {
+  font-size: 16px;
+  line-height: 100%;
+  font-weight: 400;
+}
+
+@media (min-width: 576px) {
+  .ds-comments-card {
+    max-width: 650px;
+    max-height: 110px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ds-comments-card {
+    max-width: 750px;
+    max-height: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .ds-comments-card {
+    max-width: 880px;
+    max-height: 90px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ds-comments-title {
+    font-size: 32px;
+    height: 48px;
+  }
+
+  .ds-comments-card {
+    max-width: unset;
+    width: 960px;
+    max-height: unset;
+    height: 74px;
+    padding: 25px 20px;
+  }
+}

@@ -1,0 +1,43 @@
+:root {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #FFFFFF;
+  padding: 0;
+  margin: 0;
+
+  --ds-color-bg-primary: #FFFFFF;
+  --ds-color-bg-secondary: #3C9AF0;
+  --ds-color-bg-tertiary: #C8C8C8;
+
+  --ds-color-font-primary: #FFFFFF;
+  --ds-color-font-secondary: #5E5E5E;
+  --ds-color-font-tertiary: #3C9AF0;
+
+  --ds-color-border-primary: #3C9AF0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
