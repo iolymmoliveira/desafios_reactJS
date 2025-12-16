@@ -15,18 +15,22 @@
   --dsc-color-secondary: #FFFFFF;
   --dsc-color-tertiary: #0CAF1D;
   --dsc-color-quaternary: #3483FA;
+  --dsc-color-placeholder: #D9D9D9;
+  --dsc-color-error: #FF3333;
 
   --dsc-font-bold-lg: 700 20px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-md: 700 16px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-sm: 700 14px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-xs: 700 12px/1 var(--dsc-font-family-primary);
 
+  --dsc-font-regular-md: 400 16px/1 var(--dsc-font-family-primary);
   --dsc-font-regular-xs: 400 12px/1.2 var(--dsc-font-family-primary);
 
   --dsc-border-radius-sm: 4px;
 
   --dsc-border-primary: 1px solid #D9D9D9;
   --dsc-border-secondary: 1px solid #3483FA;
+  --dsc-border-error: 1px solid #FF3333;
 }
 
 * {
@@ -81,12 +85,12 @@ main {
   padding: 10px 104px;
 }
 
-.button-primary {
+.dsc-button-primary {
   background-color: var(--dsc-bg-tertiary);
   color: var(--dsc-color-secondary);
 }
 
-.button-secondary {
+.dsc-button-secondary {
   background-color: var(--dsc-bg-secondary);
   color: var(--dsc-color-quaternary);
 }
