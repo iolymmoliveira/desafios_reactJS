@@ -1,11 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
+  --dsc-font-family-primary: 'Open Sans', sans-serif;
 
+  --dsc-bg-primary: #E8E8E8;
+  --dsc-bg-secondary: #FFFFFF;
+  --dsc-bg-tertiary: #3483FA;
+  --dsc-bg-quaternary: #636363;
 
+  --dsc-bg-header-primary: #FFE500;
+  --dsc-bg-header-secondary: #0CAF1D;
 
+  --dsc-color-primary: #636363;
+  --dsc-color-secondary: #FFFFFF;
+  --dsc-color-tertiary: #0CAF1D;
+  --dsc-color-quaternary: #3483FA;
+
+  --dsc-font-bold-lg: 700 20px/1 var(--dsc-font-family-primary);
+  --dsc-font-bold-md: 700 16px/1 var(--dsc-font-family-primary);
+  --dsc-font-bold-sm: 700 14px/1 var(--dsc-font-family-primary);
+  --dsc-font-bold-xs: 700 12px/1 var(--dsc-font-family-primary);
+
+  --dsc-font-regular-xs: 400 12px/1.2 var(--dsc-font-family-primary);
+
+  --dsc-border-radius-sm: 4px;
+
+  --dsc-border-primary: 1px solid #D9D9D9;
+  --dsc-border-secondary: 1px solid #3483FA;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--dsc-font-family-primary);
+}
+
+html, body {
+  background-color: var(--dsc-bg-primary);
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+.dsc-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  padding: 20px 20px;
+}
+
+.dsc-card {
+  background-color: var(--dsc-bg-secondary);
+  border: var(--dsc-border-primary);
+  border-radius: var(--dsc-border-radius-sm);
+}
+
+.dsc-button {
+  height: 42px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--dsc-border-secondary);
+  border-radius: var(--dsc-border-radius-sm);
+  cursor: pointer;
+  padding: 10px 104px;
+}
+
+.button-primary {
+  background-color: var(--dsc-bg-tertiary);
+  color: var(--dsc-color-secondary);
+}
+
+.button-secondary {
+  background-color: var(--dsc-bg-secondary);
+  color: var(--dsc-color-quaternary);
 }
