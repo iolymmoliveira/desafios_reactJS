@@ -1,10 +1,15 @@
+import "./index.css"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import ClientHome from "./routes/ClientHome"
 
 function App() {
 
   return (
-    <>
-      <h1>Desafio Projeto Estruturado</h1>
-    </>
+    <BrowserRouter>    
+      <Routes>
+        <Route path="/" element={<ClientHome />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
