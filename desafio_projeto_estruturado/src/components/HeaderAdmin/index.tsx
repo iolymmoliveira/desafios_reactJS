@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import cartIcon from "../../assets/icons/cart.svg";
-import settingsIcon from "../../assets/icons/settings.svg";
 import "./styles.css";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import productsIcon from "../../assets/icons/products.svg";
+import homeIcon from "../../assets/icons/home.svg";
 
-export default function HeaderClient() {
+export default function HeaderAdmin() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const userName = "Maria Silva";
 
@@ -14,22 +14,24 @@ export default function HeaderClient() {
 
   return (
     <>
-      <header className="dsc-header-client">
+      <header className="dsc-header-admin">
         <nav className="dsc-nav dsc-container flex-center-between">
           <Link to="/">
             <h1>DS Commerce</h1>
           </Link>
           <div className="dsc-navbar-right">
-            <div className="dsc-menu-items-icons">
-              {isAuthenticated && (
-                <div className="dsc-item">
-                  <img src={settingsIcon} alt="Configurações" />
+            {isAuthenticated && (
+              <div className="dsc-menu-items-icons-admin">
+                <div className="dsc-item-admin">
+                  <img src={homeIcon} alt="Início" />
+                  <p>Início</p>
                 </div>
-              )}
-              <div className="dsc-item">
-                <img src={cartIcon} alt="Carrinho de compras" />
+                <div className="dsc-item-admin">
+                  <img src={productsIcon} alt="Cadastro de Produtos" />
+                  <p>Produtos</p>
+                </div>
               </div>
-            </div>
+            )}
             {isAuthenticated ? (
               <div className="dsc-menu-items-info">
                 <div className="dsc-item-user">{userName}</div>

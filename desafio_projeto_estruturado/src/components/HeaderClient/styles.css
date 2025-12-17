@@ -1,11 +1,8 @@
-.dsc-header {
+.dsc-header-client {
   background-color: var(--dsc-bg-header-primary);
-  height: 70px;
-  display: flex;
-  align-items: center;
 }
 
-.dsc-header h1 {
+.dsc-header-client h1 {
   font: var(--dsc-font-bold-md);
   color: var(--dsc-color-primary);
 }
