@@ -1,19 +1,59 @@
 import "./styles.css";
+import { useState } from "react";
+import type { CredentialsDTO } from "../../../models/auth";
+import * as authService from "../../../services/auth-service";
 
 export default function Login() {
+
+  const [formData, setFormData] = useState<CredentialsDTO>({
+    username: '',
+    password: '',
+  })
+
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    authService.loginRequest(formData)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log("Erro no login: ", error)
+      })
+  }
+
+  function handleInputChange(event: any) {
+    const value = event.target.value;
+    const name = event.target.name;
+    setFormData({...formData, [name]: value});
+  }
+
   return (
     <main>
       <section id="login-section" className="dsc-container">
         <div className="dsc-login-form-container">
-          <form action="" className="dsc-form">
+          <form action="" className="dsc-form" onSubmit={handleSubmit}>
             <h2>Login</h2>
             <div className="dsc-form-controls-container">
               <div>
-                <input type="text" className="dsc-form-control dsc-input-error" placeholder="Email" />
+                <input 
+                  name="username"
+                  value={formData.username}
+                  type="text" 
+                  className="dsc-form-control dsc-input-error" 
+                  placeholder="Email"
+                  onChange={handleInputChange}
+                />
                 <div className="dsc-form-error">Campo obrigatório</div>
               </div>
               <div>
-                <input type="password" className="dsc-form-control" placeholder="Senha" />
+                <input 
+                  name="password"
+                  value={formData.password}
+                  type="password"
+                  className="dsc-form-control"
+                  placeholder="Senha"
+                  onChange={handleInputChange}
+                />
               </div>
             </div>
 
