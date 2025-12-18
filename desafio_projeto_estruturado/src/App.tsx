@@ -1,14 +1,16 @@
 import "./index.css"
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import ClientHome from "./routes/ClientHome"
 import Login from "./routes/ClientHome/Login"
 import AdminHome from "./routes/Admin/AdminHome"
 import Admin from "./routes/Admin"
+import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
+import { history } from "./utils/history";
 
 function App() {
 
   return (
-    <BrowserRouter>    
+    <HistoryRouter history={history}>    
       <Routes>
         <Route path="/" element={<ClientHome />} >
           <Route path="/" element={<Login />} />
@@ -19,7 +21,7 @@ function App() {
 
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   )
 }
 
