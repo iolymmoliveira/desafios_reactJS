@@ -19,7 +19,7 @@ export default function HeaderAdmin() {
           <Link to="/">
             <h1>DS Commerce</h1>
           </Link>
-          <div className="dsc-navbar-right">
+          <div className="dsc-navbar-right-admin">
             {isAuthenticated && (
               <div className="dsc-menu-items-icons-admin">
                 <div className="dsc-item-admin">
@@ -33,12 +33,12 @@ export default function HeaderAdmin() {
               </div>
             )}
             {isAuthenticated ? (
-              <div className="dsc-menu-items-info">
-                <div className="dsc-item-user">{userName}</div>
+              <div className="dsc-menu-items-info-admin">
+                <div className="dsc-item-user-admin">{userName}</div>
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="dsc-logout-button"
+                  className="dsc-logout-button-admin"
                 >
                   Sair
                 </button>
