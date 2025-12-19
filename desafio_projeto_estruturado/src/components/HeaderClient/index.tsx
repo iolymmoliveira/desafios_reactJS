@@ -5,14 +5,11 @@ import "./styles.css";
 import * as authService from "../../services/auth-service";
 import { useContext } from "react";
 import { ContextToken } from "../../utils/context-token";
+import LoggedUser from "../LoggedUser";
 
 export default function HeaderClient() {
-  const userName = "Maria Silva";
-  const { contextTokenPayload } = useContext(ContextToken);
 
-  function handleLogout() {
-    authService.logout();
-  }
+  const { contextTokenPayload } = useContext(ContextToken);
 
   return (
     <>
@@ -38,20 +35,7 @@ export default function HeaderClient() {
                 </div>
               </Link>
             </div>
-            {authService.isAuthenticated() ? (
-              <div className="dsc-menu-items-info">
-                <div className="dsc-item-user">{userName}</div>
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="dsc-logout-button"
-                >
-                  Sair
-                </button>
-              </div>
-            ) : (
-              <Link to="/login">Entrar</Link>
-            )}
+            <LoggedUser />
           </div>
         </nav>
       </header>

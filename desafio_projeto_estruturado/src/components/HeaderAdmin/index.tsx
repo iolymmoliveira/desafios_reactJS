@@ -1,16 +1,10 @@
 import "./styles.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import productsIcon from "../../assets/icons/products.svg";
 import homeIcon from "../../assets/icons/home.svg";
+import LoggedUser from "../LoggedUser";
 
 export default function HeaderAdmin() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
-  const userName = "Maria Silva";
-
-  function handleLogout() {
-    setIsAuthenticated(false);
-  }
 
   return (
     <>
@@ -20,7 +14,6 @@ export default function HeaderAdmin() {
             <h1>DS Commerce</h1>
           </Link>
           <div className="dsc-navbar-right-admin">
-            {isAuthenticated && (
               <div className="dsc-menu-items-icons-admin">
                 <div className="dsc-item-admin">
                   <img src={homeIcon} alt="Início" />
@@ -31,21 +24,7 @@ export default function HeaderAdmin() {
                   <p>Produtos</p>
                 </div>
               </div>
-            )}
-            {isAuthenticated ? (
-              <div className="dsc-menu-items-info-admin">
-                <div className="dsc-item-user-admin">{userName}</div>
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="dsc-logout-button-admin"
-                >
-                  Sair
-                </button>
-              </div>
-            ) : (
-              <Link to="/login">Entrar</Link>
-            )}
+            <LoggedUser />
           </div>
         </nav>
       </header>

@@ -1,10 +1,10 @@
 .dsc-header-admin {
   background-color: var(--dsc-bg-header-secondary);
+  color: var(--dsc-color-secondary);
 }
 
 .dsc-header-admin h1 {
   font: var(--dsc-font-bold-md);
-  color: var(--dsc-color-secondary);
 }
 
 .dsc-nav {
@@ -38,38 +38,17 @@
 
 .dsc-item-admin p {
   font: var(--dsc-font-regular-sm);
-  color: var(--dsc-color-secondary);
   display: none;
 }
 
-.dsc-navbar-right-admin a,
-.dsc-logout-button-admin {
+.dsc-navbar-right-admin a {
   font: var(--dsc-font-bold-sm);
-  color: var(--dsc-color-secondary);
 }
 
 .dsc-navbar-right-admin {
   display: flex;
   flex-direction: row;
   gap: 20px;
-}
-
-.dsc-menu-items-info-admin {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 35px;
-}
-
-.dsc-item-user-admin {
-  font: var(--dsc-font-regular-xs);
-  color: var(--dsc-color-secondary);
-}
-
-.dsc-logout-button-admin {
-  background-color: unset;
-  border: unset;
 }
 
 @media (min-width: 576px) {

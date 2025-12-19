@@ -1,5 +1,6 @@
 .dsc-header-client {
   background-color: var(--dsc-bg-header-primary);
+  color: var(--dsc-color-primary);
 }
 
 .dsc-header-client h1 {
@@ -51,7 +52,6 @@
 
 .dsc-item-user {
   font: var(--dsc-font-regular-xs);
-  color: var(--dsc-color-primary);
 }
 
 .dsc-logout-button {

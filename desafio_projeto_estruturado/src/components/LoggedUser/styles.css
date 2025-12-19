@@ -1,0 +1,7 @@
+.dsc-user-info {
+  font: var(--dsc-font-regular-xs);
+}
+
+.dsc-logout {
+  font: var(--dsc-font-bold-sm);
+}
