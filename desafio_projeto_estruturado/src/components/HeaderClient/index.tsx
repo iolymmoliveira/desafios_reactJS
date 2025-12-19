@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import cartIcon from "../../assets/icons/cart.svg";
-import settingsIcon from "../../assets/icons/settings.svg";
+import adminIcon from "../../assets/icons/settings.svg";
 import "./styles.css";
-import { useState } from "react";
+import * as authService from "../../services/auth-service";
+import { useContext } from "react";
+import { ContextToken } from "../../utils/context-token";
 
 export default function HeaderClient() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const userName = "Maria Silva";
+  const { contextTokenPayload } = useContext(ContextToken);
 
   function handleLogout() {
-    setIsAuthenticated(false);
+    authService.logout();
   }
 
   return (
@@ -21,16 +23,22 @@ export default function HeaderClient() {
           </Link>
           <div className="dsc-navbar-right">
             <div className="dsc-menu-items-icons">
-              {isAuthenticated && (
+              {contextTokenPayload &&
+                authService.hasAnyRoles(["ROLE_ADMIN"]) && (
+                  <Link to="/admin">
+                    <div className="dsc-item">
+                      <img src={adminIcon} alt="Admin" />
+                    </div>
+                  </Link>
+                )
+              }
+              <Link to="/cart">
                 <div className="dsc-item">
-                  <img src={settingsIcon} alt="Configurações" />
+                  <img src={cartIcon} alt="Carrinho de compras" />
                 </div>
-              )}
-              <div className="dsc-item">
-                <img src={cartIcon} alt="Carrinho de compras" />
-              </div>
+              </Link>
             </div>
-            {isAuthenticated ? (
+            {authService.isAuthenticated() ? (
               <div className="dsc-menu-items-info">
                 <div className="dsc-item-user">{userName}</div>
                 <button
