@@ -1,0 +1,18 @@
+#dsc-catalog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dsc-button-next-page {
+  font: var(--dsc-font-bold-md);
+  color: var(--dsc-color-quaternary);
+}
+
+.dsc-catalog-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 20px;
+}
