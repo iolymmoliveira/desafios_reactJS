@@ -1,0 +1,12 @@
+.dsc-category {
+  background-color: var(--dsc-bg-quaternary);
+  border-radius: var(--dsc-border-radius-sm);
+  padding: 7px 20px;
+  color: var(--dsc-color-secondary);
+  font: var(--dsc-font-bold-xs);
+  width: max-content;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,19 @@
+#dsc-product-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dsc-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font: var(--dsc-font-bold-md);
+}
+
+@media (min-width: 576px) {
+  .dsc-button-container {
+    max-width: 220px;
+  }
+}
