@@ -89,7 +89,7 @@ main {
   border: var(--dsc-border-secondary);
   border-radius: var(--dsc-border-radius-sm);
   cursor: pointer;
-  padding: 10px 104px;
+  padding: 10px 0px;
 }
 
 .dsc-button-primary {

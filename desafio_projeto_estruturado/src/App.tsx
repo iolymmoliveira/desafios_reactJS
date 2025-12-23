@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import type { AccessTokenPayloadDTO } from "./models/auth";
 import { ContextToken } from "./utils/context-token";
 import * as authService from "./services/auth-service";
+import ProductDetails from "./routes/ClientHome/ProductDetails";
+import Catalog from "./routes/ClientHome/Catalog";
+import Cart from "./routes/ClientHome/Cart";
 
 function App() {
   const [contextTokenPayload, setContextTokenPayload] =
@@ -24,11 +27,17 @@ function App() {
   }, []);
 
   return (
-    <ContextToken.Provider value={{ contextTokenPayload, setContextTokenPayload }}>
+    <ContextToken.Provider
+      value={{ contextTokenPayload, setContextTokenPayload }}
+    >
       <HistoryRouter history={history}>
         <Routes>
           <Route path="/" element={<ClientHome />}>
-            <Route path="/" element={<Login />} />
+            <Route index element={<Catalog />} />
+            <Route path="catalog" element={<Catalog />} />
+            <Route path="product-details/:productId" element={<ProductDetails />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="login" element={<Login />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
           <Route
