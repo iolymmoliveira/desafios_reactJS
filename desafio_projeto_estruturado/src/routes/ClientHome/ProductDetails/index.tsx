@@ -3,11 +3,23 @@ import Button from "../../../components/Button";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import * as productService from "../../../services/product-service";
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import type { ProductDTO } from "../../../models/product";
 
 export default function ProductDetails() {
-
   const params = useParams();
-  const product = productService.findById(Number(params.productId));
+
+  const [product, setProduct] = useState<ProductDTO>();
+
+  useEffect(() => {
+    productService.findById(Number(params.productId))
+      .then(response => {
+        setProduct(response.data);
+      })
+      .catch(error => {
+        console.log("Error: ", error);
+      })
+  }, []);
 
   return (
     <main>
