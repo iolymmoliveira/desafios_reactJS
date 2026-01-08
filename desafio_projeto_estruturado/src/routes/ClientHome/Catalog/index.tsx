@@ -5,7 +5,6 @@ import CatalogCard from "../../../components/CatalogCard";
 import * as productService from "../../../services/product-service";
 import type { ProductDTO } from "../../../models/product";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function Catalog() {
 
