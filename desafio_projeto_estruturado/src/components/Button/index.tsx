@@ -7,13 +7,11 @@ type ButtonProps = {
   className?: string;
 };
 
-export default function Button({ text, onClick, variant, className = "" }: ButtonProps) {
+export default function Button({ text, onClick, variant, className }: ButtonProps) {
 
   return (
     <div 
-      className={`dsc-button ${
-        variant ? `dsc-button-${variant}` : `${className}`
-      }`}
+      className={`dsc-button ${variant ? `dsc-button-${variant}` : ''} ${className}`}
       onClick={onClick}
     >
       {text}
