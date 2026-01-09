@@ -1,8 +1,12 @@
 #cart-container-section {
-  /* padding: 20px 0; */
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.dsc-cart-empty {
+  color: var(--dsc-color-primary);
+  font: var(--dsc-font-bold-md);
 }
 
 .dsc-cart-item-container {
@@ -63,7 +67,8 @@
   color: var(--dsc-color-tertiary);
 }
 
-.dsc-btn-page-container {
+.dsc-btn-page-container,
+.dsc-link-container {
   display: flex;
   flex-direction: column;
   gap: 20px;

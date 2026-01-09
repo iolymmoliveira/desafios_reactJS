@@ -3,28 +3,31 @@ import Button from "../../../components/Button";
 import { useState } from "react";
 import * as cartService from "../../../services/cart-service";
 import type { OrderDTO } from "../../../models/order";
-import { OrderItemDTO } from "../../../models/order";
-
-const item1 : OrderItemDTO = new OrderItemDTO(
-  4, 1, "PC Gamer", 1200, "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/4-big.jpg"
-);
-
-const item2 : OrderItemDTO = new OrderItemDTO(
-  5, 2, "Rails for Dummies", 100.99, "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/5-big.jpg"
-);
+import { Link } from "react-router-dom";
 
 export default function Cart() {
-  
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
+
+  function handleClearClick() {
+    cartService.clearCart();
+    setCart(cartService.getCart());
+  }
 
   return (
     <>
       <main>
         <section id="cart-container-section" className="dsc-container">
-          <div className="dsc-card">
-            {
-              cart.items.map(item => (
-                <div key={item.productId} className="dsc-cart-item-container dsc-line-bottom">
+          {cart.items.length === 0 ? (
+            <div>
+              <h2 className="dsc-cart-empty">Seu carrinho está vazio</h2>
+            </div>
+          ) : (
+            <div className="dsc-card">
+              {cart.items.map((item) => (
+                <div
+                  key={item.productId}
+                  className="dsc-cart-item-container dsc-line-bottom"
+                >
                   <div className="dsc-cart-item-left">
                     <img src={item.imgUrl} alt="Computador" />
                     <div className="dsc-cart-item-description">
@@ -36,24 +39,35 @@ export default function Cart() {
                       </div>
                     </div>
                   </div>
-                  <div className="dsc-cart-item-right">R$ {(item.price * item.quantity).toFixed(2)}</div>
+                  <div className="dsc-cart-item-right">
+                    R$ {item.subTotal.toFixed(2)}
+                  </div>
                 </div>
-              ))
-            }
-
-            <div className="dsc-cart-total-container">
-              <h3>R$ {}</h3>
+              ))}
+              <div className="dsc-cart-total-container">
+                <h3>R$ {cart.total.toFixed(2)}</h3>
+              </div>
             </div>
-          </div>
+          )}
           <div className="dsc-btn-page-container">
-            <Button text="Finalizar pedido" variant="primary" className="dsc-cart-button" />
-            <Button text="Continuar comprando" variant="secondary" className="dsc-cart-button" />
-            {/* <div className="dsc-button dsc-button-primary">
-              Finalizar pedido
-            </div>
-            <div className="dsc-button dsc-button-secondary">
-              Continuar comprando
-            </div> */}
+            <Button
+              text="Finalizar pedido"
+              variant="primary"
+              className="dsc-cart-button"
+            />
+            <Link to="/catalog" className="dsc-link-container">
+              <Button
+                text="Continuar comprando"
+                variant="secondary"
+                className="dsc-cart-button"
+              />
+              <Button
+                text="Limpar carrinho 🗑️"
+                variant="secondary"
+                className="dsc-cart-button"
+                onClick={handleClearClick}
+              />
+            </Link>
           </div>
         </section>
       </main>
