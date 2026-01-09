@@ -1,0 +1,28 @@
+.dsc-item {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+}
+
+.dsc-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dsc-cart-count {
+  background-color: var(--dsc-bg-notification);
+  color: var(--dsc-color-secondary);
+  border-radius: var(--dsc-border-radius-round);
+  padding: 4px;
+  font: var(--dsc-font-bold-xxs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -10px;
+  left: -6px;
+  min-width: 18px;
+  height: 18px;
+}

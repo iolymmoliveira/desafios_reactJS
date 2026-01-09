@@ -1,26 +1,34 @@
 import "./styles.css";
 import Button from "../../../components/Button";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as cartService from "../../../services/cart-service";
 import type { OrderDTO } from "../../../models/order";
 import { Link } from "react-router-dom";
+import { ContextCartCount } from "../../../utils/context-cart";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
+  const { setContextCartCount } = useContext(ContextCartCount);
 
   function handleClearClick() {
     cartService.clearCart();
-    setCart(cartService.getCart());
+    updateCart();
   }
 
-  function handleIncreaseItem(productId : number) {
+  function handleIncreaseItem(productId: number) {
     cartService.increaseItem(productId);
     setCart(cartService.getCart());
   }
 
-  function handleDecreaseItem(productId : number) {
+  function handleDecreaseItem(productId: number) {
     cartService.decreaseItem(productId);
+    updateCart();
+  }
+
+  function updateCart() {
+    const newCart = cartService.getCart();
     setCart(cartService.getCart());
+    setContextCartCount(newCart.items.length);
   }
 
   return (
@@ -43,9 +51,19 @@ export default function Cart() {
                     <div className="dsc-cart-item-description">
                       <h3>{item.name}</h3>
                       <div className="dsc-cart-item-quantity-container">
-                        <div onClick={() => handleDecreaseItem(item.productId)}  className="dsc-cart-item-quantity-btn">-</div>
+                        <div
+                          onClick={() => handleDecreaseItem(item.productId)}
+                          className="dsc-cart-item-quantity-btn"
+                        >
+                          -
+                        </div>
                         <p>{item.quantity}</p>
-                        <div onClick={() => handleIncreaseItem(item.productId)} className="dsc-cart-item-quantity-btn">+</div>
+                        <div
+                          onClick={() => handleIncreaseItem(item.productId)}
+                          className="dsc-cart-item-quantity-btn"
+                        >
+                          +
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -14,12 +14,17 @@ import * as authService from "./services/auth-service";
 import ProductDetails from "./routes/ClientHome/ProductDetails";
 import Catalog from "./routes/ClientHome/Catalog";
 import Cart from "./routes/ClientHome/Cart";
+import { ContextCartCount } from "./utils/context-cart";
+import * as cartService from "./services/cart-service";
 
 function App() {
   const [contextTokenPayload, setContextTokenPayload] =
     useState<AccessTokenPayloadDTO>();
+  const [contextCartCount, setContextCartCount] = useState<number>(0);
 
   useEffect(() => {
+    setContextCartCount(cartService.getCart().items.length);
+
     if (authService.isAuthenticated()) {
       const payload = authService.getAccessTokenPayload();
       setContextTokenPayload(payload);
@@ -30,28 +35,35 @@ function App() {
     <ContextToken.Provider
       value={{ contextTokenPayload, setContextTokenPayload }}
     >
-      <HistoryRouter history={history}>
-        <Routes>
-          <Route path="/" element={<ClientHome />}>
-            <Route index element={<Catalog />} />
-            <Route path="catalog" element={<Catalog />} />
-            <Route path="product-details/:productId" element={<ProductDetails />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="login" element={<Login />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
-          <Route
-            path="/admin/"
-            element={
-              <PrivateRoute roles={["ROLE_ADMIN"]}>
-                <Admin />
-              </PrivateRoute>
-            }
-          >
-            <Route index element={<AdminHome />} />
-          </Route>
-        </Routes>
-      </HistoryRouter>
+      <ContextCartCount.Provider
+        value={{ contextCartCount, setContextCartCount }}
+      >
+        <HistoryRouter history={history}>
+          <Routes>
+            <Route path="/" element={<ClientHome />}>
+              <Route index element={<Catalog />} />
+              <Route path="catalog" element={<Catalog />} />
+              <Route
+                path="product-details/:productId"
+                element={<ProductDetails />}
+              />
+              <Route path="cart" element={<Cart />} />
+              <Route path="login" element={<Login />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" />} />
+            <Route
+              path="/admin/"
+              element={
+                <PrivateRoute roles={["ROLE_ADMIN"]}>
+                  <Admin />
+                </PrivateRoute>
+              }
+            >
+              <Route index element={<AdminHome />} />
+            </Route>
+          </Routes>
+        </HistoryRouter>
+      </ContextCartCount.Provider>
     </ContextToken.Provider>
   );
 }

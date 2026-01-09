@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import cartIcon from "../../assets/icons/cart.svg";
 import adminIcon from "../../assets/icons/settings.svg";
 import "./styles.css";
 import * as authService from "../../services/auth-service";
 import { useContext } from "react";
 import { ContextToken } from "../../utils/context-token";
 import LoggedUser from "../LoggedUser";
+import CartIcon from "../CartIcon";
 
 export default function HeaderClient() {
 
@@ -30,9 +30,7 @@ export default function HeaderClient() {
                 )
               }
               <Link to="/cart">
-                <div className="dsc-item">
-                  <img src={cartIcon} alt="Carrinho de compras" />
-                </div>
+                <CartIcon />
               </Link>
             </div>
             <LoggedUser />
