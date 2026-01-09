@@ -6,27 +6,39 @@ import * as productService from "../../../services/product-service";
 import type { ProductDTO } from "../../../models/product";
 import { useEffect, useState } from "react";
 
+type QueryParams = {
+  page: number,
+  name: string,
+}
+
 export default function Catalog() {
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
-  const [productName, setProductName] = useState("");
+  const [queryParams, setQueryParams] = useState<QueryParams>({
+    page: 0,
+    name: "",
+  });
+  const [isLastPage, setIsLastPage] = useState(false);
 
   useEffect(() => {
-    productService.findPageRequest(0, productName)
+    productService.findPageRequest(queryParams.page, queryParams.name)
       .then(response => {
-        setProducts(response.data.content);
+        const nextPage = response.data.content;
+        setProducts(products.concat(nextPage));
+        setIsLastPage(response.data.last);
       })
       .catch(error => {
         console.log("Error: ", error);
       })  
-  }, [productName])
+  }, [queryParams])
 
-  function handleNextPage() {
-    console.log("Clicou no Carregar mais");
+  function handleNextPageClick() {
+    setQueryParams({...queryParams, page: queryParams.page + 1});
   }
 
   function handleSearch(searchText: string) {
-    setProductName(searchText);
+    setProducts([]);
+    setQueryParams({...queryParams, page: 0, name: searchText});
   }
 
   return (
@@ -38,11 +50,14 @@ export default function Catalog() {
             <CatalogCard key={product.id} product={product} />
           ))}
         </div>
-        <Button
-          text="Carregar mais"
-          onClick={handleNextPage}
-          className="dsc-button-next-page"
-        />
+        {
+          !isLastPage &&
+          <Button
+            text="Carregar mais"
+            onClick={handleNextPageClick}
+            className="dsc-button-next-page"
+          />
+        }
       </section>
     </main>
   );
