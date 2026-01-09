@@ -13,7 +13,6 @@ export default function SearchBar({ onSearch} : Props) {
   }
 
   function handleResetClick() {
-    console.log("Clicou no botão de reset >>> ", text);
     setText("");
     onSearch(text);
   }
@@ -21,7 +20,6 @@ export default function SearchBar({ onSearch} : Props) {
   function handleSubmit(event: any) {
     event.preventDefault();
     onSearch(text);
-    console.log("Clicou no botão submit >>> ", text);
   }
 
   return (
@@ -37,7 +35,7 @@ export default function SearchBar({ onSearch} : Props) {
         onChange={handleChange}
         className="dsc-search-input"
       />
-      <button type="button" className="dsc-search-reset" onClick={handleResetClick}>❌</button>
+      <button className="dsc-search-reset" onClick={handleResetClick}>❌</button>
     </form>
   );
 }

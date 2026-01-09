@@ -9,23 +9,24 @@ import { useEffect, useState } from "react";
 export default function Catalog() {
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
+  const [productName, setProductName] = useState("");
 
   useEffect(() => {
-    productService.findAll()
+    productService.findPageRequest(0, productName)
       .then(response => {
         setProducts(response.data.content);
       })
       .catch(error => {
         console.log("Error: ", error);
       })  
-  }, [])
+  }, [productName])
 
   function handleNextPage() {
     console.log("Clicou no Carregar mais");
   }
 
-  function handleSearch() {
-    console.log("Realizou uma busca");
+  function handleSearch(searchText: string) {
+    setProductName(searchText);
   }
 
   return (
