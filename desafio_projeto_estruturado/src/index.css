@@ -19,6 +19,7 @@
   --dsc-color-placeholder: #d9d9d9;
   --dsc-color-error: #ff3333;
 
+  --dsc-font-bold-xlg: 700 24px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-lg: 700 20px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-md: 700 16px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-sm: 700 14px/1 var(--dsc-font-family-primary);

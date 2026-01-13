@@ -4,4 +4,5 @@
 
 .dsc-logout {
   font: var(--dsc-font-bold-sm);
+  cursor: pointer;
 }

@@ -28,7 +28,7 @@ export default function ProductDetails() {
     if (product) {
       cartService.addProduct(product);
       setContextCartCount(cartService.getCart().items.length);
-      navigate("/Cart");
+      navigate("/cart");
     }
   }
 

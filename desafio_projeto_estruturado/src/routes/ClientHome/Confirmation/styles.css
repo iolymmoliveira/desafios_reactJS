@@ -1,0 +1,22 @@
+#confirmation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dsc-confirmation-message {
+  font: var(--dsc-font-bold-md);
+  color: var(--dsc-color-primary);
+  text-align: center;
+}
+
+.dsc-confirmation-start {
+  font: var(--dsc-font-bold-md);
+}
+
+@media (min-width: 576px) {
+  .dsc-confirmation-message {
+    font: var(--dsc-font-bold-xlg);
+    text-align: left;
+  }
+}

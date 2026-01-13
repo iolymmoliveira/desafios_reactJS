@@ -3,12 +3,14 @@ import Button from "../../../components/Button";
 import { useContext, useState } from "react";
 import * as cartService from "../../../services/cart-service";
 import type { OrderDTO } from "../../../models/order";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ContextCartCount } from "../../../utils/context-cart";
+import * as orderService from "../../../services/order-service";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
   const { setContextCartCount } = useContext(ContextCartCount);
+  const navigate = useNavigate();
 
   function handleClearClick() {
     cartService.clearCart();
@@ -29,6 +31,21 @@ export default function Cart() {
     const newCart = cartService.getCart();
     setCart(cartService.getCart());
     setContextCartCount(newCart.items.length);
+  }
+
+  function handleRegisterOrderClick() {
+    orderService
+      .registerOrderRequest(cart)
+      .then((response) => {
+        cartService.clearCart();
+        setContextCartCount(0);
+        navigate(`/confirmation/${response.data.id}`);
+      })
+      .catch((error) => {
+        console.error("Erro completo:", error);
+        console.error("Response:", error.response);
+        alert("Erro ao finalizar pedido");
+      });
   }
 
   return (
@@ -82,6 +99,7 @@ export default function Cart() {
               text="Finalizar pedido"
               variant="primary"
               className="dsc-cart-button"
+              onClick={handleRegisterOrderClick}
             />
             <Link to="/catalog" className="dsc-link-container">
               <Button
