@@ -40,11 +40,6 @@ export default function Cart() {
         cartService.clearCart();
         setContextCartCount(0);
         navigate(`/confirmation/${response.data.id}`);
-      })
-      .catch((error) => {
-        console.error("Erro completo:", error);
-        console.error("Response:", error.response);
-        alert("Erro ao finalizar pedido");
       });
   }
 

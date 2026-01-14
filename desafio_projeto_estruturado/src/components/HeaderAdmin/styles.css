@@ -23,6 +23,15 @@
   gap: 19px;
 }
 
+.dsc-menu-nav-link {
+  display: flex;
+  font: var(--dsc-font-regular-sm);
+}
+
+.dsc-menu-nav-link-active {
+  font: var(--dsc-font-bold-sm);
+}
+
 .dsc-item-admin {
   cursor: pointer;
   display: flex;
@@ -37,12 +46,7 @@
 }
 
 .dsc-item-admin p {
-  font: var(--dsc-font-regular-sm);
   display: none;
-}
-
-.dsc-navbar-right-admin a {
-  font: var(--dsc-font-bold-sm);
 }
 
 .dsc-navbar-right-admin {

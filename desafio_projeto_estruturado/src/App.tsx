@@ -17,6 +17,8 @@ import Cart from "./routes/ClientHome/Cart";
 import { ContextCartCount } from "./utils/context-cart";
 import * as cartService from "./services/cart-service";
 import Confirmation from "./routes/ClientHome/Confirmation";
+import ProductListing from "./routes/Admin/ProductListing";
+import ProductForm from "./routes/Admin/ProductForm";
 
 function App() {
   const [contextTokenPayload, setContextTokenPayload] =
@@ -68,7 +70,10 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route index element={<AdminHome />} />
+              <Route index element={<Navigate to="/admin/home" />} />
+              <Route path="home" element={<AdminHome />} />
+              <Route path="products" element={<ProductListing />} />
+              <Route path="products/:productId" element={<ProductForm />} />
             </Route>
           </Routes>
         </HistoryRouter>

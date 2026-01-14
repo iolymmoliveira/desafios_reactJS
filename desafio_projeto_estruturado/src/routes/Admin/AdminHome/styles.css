@@ -1,3 +1,10 @@
-#dsc-admin-home-section {
-  padding: 20px 0;
+.dsc-section-title {
+  font: var(--dsc-font-bold-md);
+  color: var(--dsc-color-primary);
+}
+
+@media (min-width: 576px) {
+  .dsc-section-title {
+    font: var(--dsc-font-bold-xlg);
+  }
 }
