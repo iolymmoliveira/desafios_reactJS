@@ -31,6 +31,7 @@
   --dsc-font-regular-xs: 400 12px/1.2 var(--dsc-font-family-primary);
   --dsc-font-regular-xxs: 400 10px/1.2 var(--dsc-font-family-primary);
 
+  --dsc-border-radius-xlg: 10px;
   --dsc-border-radius-sm: 4px;
   --dsc-border-radius-round: 50%;
 
