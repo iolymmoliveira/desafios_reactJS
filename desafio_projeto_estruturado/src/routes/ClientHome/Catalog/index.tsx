@@ -26,10 +26,7 @@ export default function Catalog() {
         const nextPage = response.data.content;
         setProducts(products.concat(nextPage));
         setIsLastPage(response.data.last);
-      })
-      .catch(error => {
-        console.log("Error: ", error);
-      })  
+      });
   }, [queryParams])
 
   function handleNextPageClick() {
