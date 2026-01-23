@@ -26,6 +26,8 @@
   --dsc-font-bold-xs: 700 12px/1 var(--dsc-font-family-primary);
   --dsc-font-bold-xxs: 700 10px/1.2 var(--dsc-font-family-primary);
 
+  --dsc-font-regular-xlg: 400 24px/1 var(--dsc-font-family-primary);
+  --dsc-font-regular-lg: 400 20px/1 var(--dsc-font-family-primary);
   --dsc-font-regular-md: 400 16px/1 var(--dsc-font-family-primary);
   --dsc-font-regular-sm: 400 14px/1 var(--dsc-font-family-primary);
   --dsc-font-regular-xs: 400 12px/1.2 var(--dsc-font-family-primary);
