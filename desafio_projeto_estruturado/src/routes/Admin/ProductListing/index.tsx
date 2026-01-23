@@ -30,8 +30,13 @@ export default function ProductListing() {
       });
   }, [queryParams]);
 
-  function handleSearch() {
-    console.log("Clicou no Pesquisar");
+  function handleSearch(searchText: string) {
+    setProducts([]);
+    setQueryParams({ ...queryParams, page: 0, name: searchText });
+  }
+
+  function handleNextPageClick() {
+    setQueryParams({...queryParams, page: queryParams.page + 1});
   }
 
   return (
@@ -60,7 +65,7 @@ export default function ProductListing() {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr>
+              <tr key={product.id}>
                 <td className="dsc-tb576">{product.id}</td>
                 <td>
                   <img
@@ -89,9 +94,10 @@ export default function ProductListing() {
             ))}
           </tbody>
         </table>
+
         {
           !isLastPage && 
-          <Button className="dsc-button-next-page" text="Carregar mais" />
+          <Button className="dsc-button-next-page" text="Carregar mais" onClick={handleNextPageClick} />
         }
       </section>
     </main>
