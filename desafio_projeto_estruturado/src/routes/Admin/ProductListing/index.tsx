@@ -6,6 +6,7 @@ import SearchBar from "../../../components/SearchBar";
 import * as productService from "../../../services/product-service";
 import { useEffect, useState } from "react";
 import type { ProductDTO } from "../../../models/product";
+import DialogInfo from "../../../components/DialogInfo";
 
 type QueryParams = {
   page: number;
@@ -18,6 +19,10 @@ export default function ProductListing() {
   const [queryParams, setQueryParams] = useState<QueryParams>({
     page: 0,
     name: "",
+  });
+  const [dialogInfoData, setDialogInfoData] = useState({
+    visible: false,
+    message: "Operação com sucesso!",
   });
 
   useEffect(() => {
@@ -37,6 +42,14 @@ export default function ProductListing() {
 
   function handleNextPageClick() {
     setQueryParams({...queryParams, page: queryParams.page + 1});
+  }
+
+  function handleDialogInfoClose() {
+    setDialogInfoData({...dialogInfoData, visible: false});
+  }
+  
+  function handleDeleteClick() {
+    setDialogInfoData({...dialogInfoData, visible: true});
   }
 
   return (
@@ -88,6 +101,7 @@ export default function ProductListing() {
                     className="dsc-product-listing-btn"
                     src={deleteIcon}
                     alt="Deletar"
+                    onClick={handleDeleteClick}
                   />
                 </td>
               </tr>
@@ -100,6 +114,10 @@ export default function ProductListing() {
           <Button className="dsc-button-next-page" text="Carregar mais" onClick={handleNextPageClick} />
         }
       </section>
+      {
+        dialogInfoData.visible &&
+        <DialogInfo message={dialogInfoData.message} onDialogClose={handleDialogInfoClose} />
+      }
     </main>
   );
 }
