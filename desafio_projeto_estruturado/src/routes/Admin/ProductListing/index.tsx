@@ -7,6 +7,7 @@ import * as productService from "../../../services/product-service";
 import { useEffect, useState } from "react";
 import type { ProductDTO } from "../../../models/product";
 import DialogInfo from "../../../components/DialogInfo";
+import DialogConfirmation from "../../../components/DialogConfirmation";
 
 type QueryParams = {
   page: number;
@@ -23,6 +24,10 @@ export default function ProductListing() {
   const [dialogInfoData, setDialogInfoData] = useState({
     visible: false,
     message: "Operação com sucesso!",
+  });
+  const [dialogConfirmationData, setDialogConfirmationData] = useState({
+    visible: false,
+    message: "Tem certeza?",
   });
 
   useEffect(() => {
@@ -49,7 +54,11 @@ export default function ProductListing() {
   }
   
   function handleDeleteClick() {
-    setDialogInfoData({...dialogInfoData, visible: true});
+    setDialogConfirmationData({...dialogConfirmationData, visible: true});
+  }
+
+  function handleDialogConfirmationAnswer(answer: boolean) {
+    setDialogConfirmationData({...dialogConfirmationData, visible: false});
   }
 
   return (
@@ -117,6 +126,10 @@ export default function ProductListing() {
       {
         dialogInfoData.visible &&
         <DialogInfo message={dialogInfoData.message} onDialogClose={handleDialogInfoClose} />
+      }
+      {
+        dialogConfirmationData.visible &&
+        <DialogConfirmation message={dialogConfirmationData.message} onDialogAnswer={handleDialogConfirmationAnswer} />
       }
     </main>
   );

@@ -1,0 +1,5 @@
+.dsc-dialog-confirmation-buttons {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
