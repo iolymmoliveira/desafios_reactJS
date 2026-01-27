@@ -27,6 +27,7 @@ export default function ProductListing() {
   });
   const [dialogConfirmationData, setDialogConfirmationData] = useState({
     visible: false,
+    id: 0,
     message: "Tem certeza?",
   });
 
@@ -46,19 +47,38 @@ export default function ProductListing() {
   }
 
   function handleNextPageClick() {
-    setQueryParams({...queryParams, page: queryParams.page + 1});
+    setQueryParams({ ...queryParams, page: queryParams.page + 1 });
   }
 
   function handleDialogInfoClose() {
-    setDialogInfoData({...dialogInfoData, visible: false});
-  }
-  
-  function handleDeleteClick() {
-    setDialogConfirmationData({...dialogConfirmationData, visible: true});
+    setDialogInfoData({ ...dialogInfoData, visible: false });
   }
 
-  function handleDialogConfirmationAnswer(answer: boolean) {
-    setDialogConfirmationData({...dialogConfirmationData, visible: false});
+  function handleDeleteClick(productId: number) {
+    setDialogConfirmationData({
+      ...dialogConfirmationData,
+      visible: true,
+      id: productId,
+    });
+  }
+
+  function handleDialogConfirmationAnswer(answer: boolean, productId: number) {
+    if (answer) {
+      productService
+        .deleteById(productId)
+        .then(() => {
+          setProducts([]);
+          setQueryParams({ ...queryParams, page: 0 });
+        })
+        .catch((error) => {
+          setDialogInfoData({
+            visible: true,
+            message: error.response.data.error,
+          });
+        });
+    }
+
+    setDialogConfirmationData({ ...dialogConfirmationData, visible: false });
   }
 
   return (
@@ -110,7 +130,7 @@ export default function ProductListing() {
                     className="dsc-product-listing-btn"
                     src={deleteIcon}
                     alt="Deletar"
-                    onClick={handleDeleteClick}
+                    onClick={() => handleDeleteClick(product.id)}
                   />
                 </td>
               </tr>
@@ -118,19 +138,27 @@ export default function ProductListing() {
           </tbody>
         </table>
 
-        {
-          !isLastPage && 
-          <Button className="dsc-button-next-page" text="Carregar mais" onClick={handleNextPageClick} />
-        }
+        {!isLastPage && (
+          <Button
+            className="dsc-button-next-page"
+            text="Carregar mais"
+            onClick={handleNextPageClick}
+          />
+        )}
       </section>
-      {
-        dialogInfoData.visible &&
-        <DialogInfo message={dialogInfoData.message} onDialogClose={handleDialogInfoClose} />
-      }
-      {
-        dialogConfirmationData.visible &&
-        <DialogConfirmation message={dialogConfirmationData.message} onDialogAnswer={handleDialogConfirmationAnswer} />
-      }
+      {dialogInfoData.visible && (
+        <DialogInfo
+          message={dialogInfoData.message}
+          onDialogClose={handleDialogInfoClose}
+        />
+      )}
+      {dialogConfirmationData.visible && (
+        <DialogConfirmation
+          message={dialogConfirmationData.message}
+          id={dialogConfirmationData.id}
+          onDialogAnswer={handleDialogConfirmationAnswer}
+        />
+      )}
     </main>
   );
 }

@@ -3,12 +3,13 @@ import Button from "../Button";
 
 type Props = {
   message: string;
+  id: number;
   onDialogAnswer: Function;
 };
 
-export default function DialogConfirmation({ message, onDialogAnswer }: Props) {
+export default function DialogConfirmation({ message, id, onDialogAnswer }: Props) {
   return (
-    <div className="dsc-dialog-container" onClick={() => onDialogAnswer(false)}>
+    <div className="dsc-dialog-container" onClick={() => onDialogAnswer(false, id)}>
       <div
         className="dsc-dialog-box"
         onClick={(event) => event?.stopPropagation()}
@@ -19,13 +20,13 @@ export default function DialogConfirmation({ message, onDialogAnswer }: Props) {
             text="Não"
             variant="secondary"
             className="dsc-dialog-button"
-            onClick={() => onDialogAnswer(false)}
+            onClick={() => onDialogAnswer(false, id)}
           />
           <Button
             text="Sim"
             variant="primary"
             className="dsc-dialog-button"
-            onClick={() => onDialogAnswer(true)}
+            onClick={() => onDialogAnswer(true, id)}
           />
         </div>
       </div>
