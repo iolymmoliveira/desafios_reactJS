@@ -146,3 +146,26 @@ main {
   font: var(--dsc-font-bold-md);
 }
 /* **************************************************** */
+
+/* **************************************************** */
+/* Form */
+.dsc-form-error {
+  display: none;
+  color: var(--dsc-color-error);
+  font: var(--dsc-font-regular-xs);
+  padding: 2px 0 0 4px;
+}
+
+.dsc-form-control[data-invalid="true"],
+.dsc-input-error {
+  border: var(--dsc-border-error);
+}
+
+.dsc-form-control[data-invalid="true"] ~div {
+  display: unset;
+}
+
+/* .dsc-form-error.active {
+  display: block;
+} */
+/* **************************************************** */
