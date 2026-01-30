@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import type { ProductDTO } from "../../../models/product";
 import DialogInfo from "../../../components/DialogInfo";
 import DialogConfirmation from "../../../components/DialogConfirmation";
+import { useNavigate } from "react-router-dom";
 
 type QueryParams = {
   page: number;
@@ -30,6 +31,7 @@ export default function ProductListing() {
     id: 0,
     message: "Tem certeza?",
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     productService
@@ -81,6 +83,10 @@ export default function ProductListing() {
     setDialogConfirmationData({ ...dialogConfirmationData, visible: false });
   }
 
+  function handleNewProductClick() {
+    navigate("/admin/products/create");
+  }
+
   return (
     <main>
       <section id="dsc-product-listing-section" className="dsc-container">
@@ -90,6 +96,7 @@ export default function ProductListing() {
           text="Novo"
           variant="secondary"
           className="dsc-button-new-product"
+          onClick={handleNewProductClick}
         />
 
         <SearchBar onSearch={handleSearch} />
