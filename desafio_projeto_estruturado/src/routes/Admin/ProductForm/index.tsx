@@ -39,13 +39,15 @@ export default function ProductForm() {
   const isEditing = params.productId !== "create";
 
   function handleInputChange(event: any) {
-    const dataUpdated = forms.update(
+    setFormData(forms.updateAndValidade(
       formData,
       event.target.name,
       event.target.value,
-    );
-    const dataValidated = forms.validate(dataUpdated, event.target.name);
-    setFormData(dataValidated);
+    ));
+  }
+
+  function handleTurnDirty(name: string) {
+    setFormData(forms.dirtyAndValidade(formData, name));
   }
 
   useEffect(() => {
@@ -55,11 +57,6 @@ export default function ProductForm() {
       });
     }
   }, []);
-
-  function handleTurnDirty(name: string) {
-    const newFormData = forms.toDirty(formData, name);
-    setFormData(newFormData);
-  }
 
   return (
     <main>

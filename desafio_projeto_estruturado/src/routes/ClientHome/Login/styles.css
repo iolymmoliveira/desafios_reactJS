@@ -34,18 +34,3 @@
 .dsc-form-control:focus {
   outline: none;
 }
-
-.dsc-input-error {
-  border: var(--dsc-border-error);
-}
-
-.dsc-form-error {
-  display: none;
-  color: var(--dsc-color-error);
-  font: var(--dsc-font-regular-xs);
-  padding: 2px 0 0 4px;
-}
-
-.dsc-form-error.active {
-  display: block;
-}
