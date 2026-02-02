@@ -11,7 +11,6 @@ export default function AdminHome() {
     userService.findLoggedInUser()
       .then(response => {
         setUser(response.data);
-        console.log(response.data);
       })
   }, [])
 
