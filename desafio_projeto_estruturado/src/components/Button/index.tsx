@@ -5,16 +5,17 @@ type ButtonProps = {
   onClick?: () => void;
   variant?: "primary" | "secondary";
   className?: string;
+  type?: "button" | "submit" | "reset";
 };
 
 export default function Button({ text, onClick, variant, className }: ButtonProps) {
 
   return (
-    <div 
+    <button 
       className={`dsc-button ${variant ? `dsc-button-${variant}` : ''} ${className}`}
       onClick={onClick}
     >
       {text}
-    </div>
+    </button>
   );
 }
