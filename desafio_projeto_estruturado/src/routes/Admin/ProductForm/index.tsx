@@ -6,6 +6,9 @@ import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms";
 import * as productService from "../../../services/product-service";
 import FormTextArea from "../../../components/FormTextArea";
+import * as categoryService from "../../../services/category-service";
+import type { CategoryDTO } from "../../../models/category";
+import FormSelect from "../../../components/FormSelect";
 
 export default function ProductForm() {
   const [formData, setFormData] = useState<any>({
@@ -49,10 +52,21 @@ export default function ProductForm() {
       },
       message: "A descrição deve ter pelo menos 10 caracteres",
     },
+    categories: {
+      value: [],
+      id: "categories",
+      name: "categories",
+      placeholder: "Categorias",
+      validation: function (value: CategoryDTO[]) {
+        return value.length > 0;
+      },
+      message: "Escolha ao menos uma categoria",
+    },
   });
 
   const params = useParams();
   const isEditing = params.productId !== "create";
+  const [categories, setCategories] = useState<CategoryDTO[]>([]);
 
   function handleInputChange(event: any) {
     setFormData(
@@ -64,12 +78,23 @@ export default function ProductForm() {
     setFormData(forms.dirtyAndValidade(formData, name));
   }
 
+  function handleSelectChange(obj: any) {
+    const newFormData = forms.updateAndValidade(formData, "categories", obj);
+    setFormData(newFormData);
+  }
+
   useEffect(() => {
-    if (isEditing) {
+    if (isEditing && params.productId && !isNaN(Number(params.productId))) {
       productService.findById(Number(params.productId)).then((response) => {
         setFormData(forms.updateAll(formData, response.data));
       });
     }
+  }, [isEditing, params.productId]);
+
+  useEffect(() => {
+    categoryService.findAllRequest().then((response) => {
+      setCategories(response.data);
+    });
   }, []);
 
   return (
@@ -106,24 +131,31 @@ export default function ProductForm() {
                 />
               </div>
               <div>
+                <FormSelect
+                  {...formData.categories}
+                  className="dsc-form-control"
+                  options={categories}
+                  onChange={handleSelectChange}
+                  onTurnDirty={handleTurnDirty}
+                  isMulti
+                  getOptionLabel={(obj: any) => obj.name}
+                  getOptionValue={(obj: any) => String(obj.id)}
+                />
+                <div className="dsc-form-error">
+                  {formData.categories.message}
+                </div>
+              </div>
+              <div>
                 <FormTextArea
                   {...formData.description}
                   onTurnDirty={handleTurnDirty}
                   className="dsc-form-control dsc-textarea"
                   onChange={handleInputChange}
                 ></FormTextArea>
-                <div className="dsc-form-error">{formData.description.message}</div>
+                <div className="dsc-form-error">
+                  {formData.description.message}
+                </div>
               </div>
-              {/* <div>
-                <select className="dsc-form-control dsc-select" required>
-                  <option value="" disabled selected>
-                    Categorias
-                  </option>
-                  <option value="1">Valor 1</option>
-                  <option value="2">Valor 2</option>
-                </select>
-              </div>
-              */}
             </div>
 
             <div className="dsc-form-container-buttons">
