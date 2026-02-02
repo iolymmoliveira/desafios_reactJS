@@ -98,11 +98,20 @@ export default function ProductForm() {
     });
   }, []);
 
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    const formDataValidated = forms.dirtyAndValidateAll(formData);
+    if (forms.hasAnyInvalid(formDataValidated)) {
+      setFormData(formDataValidated);
+      return;
+    }
+  }
+
   return (
     <main>
       <section id="dsc-product-form-section" className="dsc-container">
         <div className="dsc-product-form-container">
-          <form className="dsc-card dsc-form">
+          <form className="dsc-card dsc-form" onSubmit={handleSubmit}>
             <h2>Dados do produto</h2>
             <div className="dsc-form-controls-container">
               <div>
@@ -162,9 +171,9 @@ export default function ProductForm() {
 
             <div className="dsc-form-container-buttons">
               <Link to="/admin/products">
-                <Button text="Cancelar" variant="secondary" className="" />
+                <Button text="Cancelar" variant="secondary" className="dsc-product-form-button" />
               </Link>
-              <Button text="Salvar" variant="primary" className="" />
+              <Button text="Salvar" variant="primary" type="submit" className="dsc-product-form-button" />
             </div>
           </form>
         </div>

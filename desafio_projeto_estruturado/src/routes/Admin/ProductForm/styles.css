@@ -20,12 +20,17 @@
   height: 128px;
   padding-top: 10px;
   resize: none;
+  color: var(--dsc-color-primary);
 }
 
 .dsc-form-container-buttons {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font: var(--dsc-font-bold-md);
+}
+
+.dsc-product-form-button {
   font: var(--dsc-font-bold-md);
 }
 

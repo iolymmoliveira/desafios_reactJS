@@ -19,6 +19,5 @@ export function registerOrderRequest(cart : OrderDTO) {
     data: cart,
   }
 
-  console.log('registerOrderRequest - cart >>> ', cart);
   return requestBackend(config);
 }

@@ -64,6 +64,10 @@ export default function ProductListing() {
     });
   }
 
+  function handleUpdateClick(productId: number) {
+    navigate(`/admin/products/${productId}`);
+  }
+
   function handleDialogConfirmationAnswer(answer: boolean, productId: number) {
     if (answer) {
       productService
@@ -130,6 +134,7 @@ export default function ProductListing() {
                     className="dsc-product-listing-btn"
                     src={editIcon}
                     alt="Editar"
+                    onClick={() => handleUpdateClick(product.id)}
                   />
                 </td>
                 <td>
