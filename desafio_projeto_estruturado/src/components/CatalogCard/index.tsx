@@ -1,6 +1,7 @@
+import "./styles.css";
 import { Link } from "react-router-dom";
 import type { ProductDTO } from "../../models/product";
-import "./styles.css";
+import imagePlaceholder from "../../assets/images/placeholder.png";
 
 type Props = {
   product: ProductDTO,
@@ -12,7 +13,7 @@ export default function CatalogCard({ product } : Props) {
     <Link to={`/product-details/${product.id}`}>
       <div className="dsc-catalog-card-container">
         <div className="dsc-catalog-card-top">
-          <img src={product.imgUrl} alt={product.name} />
+          <img src={product.imgUrl || imagePlaceholder} alt={product.name} />
         </div>
         <div className="dsc-catalog-card-bottom">
           <h3>R$ {product.price.toFixed(2)}</h3>

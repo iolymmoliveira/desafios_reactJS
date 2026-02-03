@@ -12,6 +12,10 @@
   font: var(--dsc-font-bold-md);
 }
 
+.dsc-product-details-button {
+  font: var(--dsc-font-bold-md);
+}
+
 @media (min-width: 576px) {
   .dsc-button-container {
     max-width: 220px;

@@ -6,6 +6,7 @@ import type { OrderDTO } from "../../../models/order";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextCartCount } from "../../../utils/context-cart";
 import * as orderService from "../../../services/order-service";
+import imagePlaceholder from "../../../assets/images/placeholder.png";
 
 export default function Cart() {
   const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
@@ -59,7 +60,7 @@ export default function Cart() {
                   className="dsc-cart-item-container dsc-line-bottom"
                 >
                   <div className="dsc-cart-item-left">
-                    <img src={item.imgUrl} alt="Computador" />
+                    <img src={item.imgUrl || imagePlaceholder} alt="Computador" />
                     <div className="dsc-cart-item-description">
                       <h3>{item.name}</h3>
                       <div className="dsc-cart-item-quantity-container">

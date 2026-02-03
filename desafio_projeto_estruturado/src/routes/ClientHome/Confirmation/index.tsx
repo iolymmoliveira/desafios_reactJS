@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
 import "./styles.css";
+import { useEffect, useState } from "react";
 import type { OrderDTO } from "../../../models/order";
 import * as orderService from "../../../services/order-service";
 import { Link, useParams } from "react-router-dom";
 import Button from "../../../components/Button";
+import imagePlaceholder from "../../../assets/images/placeholder.png";
 
 export default function Confirmation() {
   const params = useParams();
@@ -27,7 +28,7 @@ export default function Confirmation() {
               className="dsc-cart-item-container dsc-line-bottom"
             >
               <div className="dsc-cart-item-left">
-                <img src={item.imgUrl} alt="Computador" />
+                <img src={item.imgUrl || imagePlaceholder} alt="Computador" />
                 <div className="dsc-cart-item-description">
                   <h3>{item.name}</h3>
                   <div className="dsc-cart-item-quantity-container">

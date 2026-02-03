@@ -40,9 +40,9 @@ export default function ProductDetails() {
           <ProductDetailsCard product={product} />
         }
         <div className="dsc-button-container">
-          <Button text="Comprar" variant="primary" onClick={handleByClick} />
+          <Button text="Comprar" variant="primary" onClick={handleByClick} className="dsc-product-details-button" />
           <Link to="/">
-            <Button text="Início" variant="secondary" />
+            <Button text="Início" variant="secondary" className="dsc-product-details-button" />
           </Link>
         </div>
       </section>
