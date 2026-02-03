@@ -9,6 +9,7 @@ import type { ProductDTO } from "../../../models/product";
 import DialogInfo from "../../../components/DialogInfo";
 import DialogConfirmation from "../../../components/DialogConfirmation";
 import { useNavigate } from "react-router-dom";
+import imgPlaceholder from "../../../assets/images/placeholder.png";
 
 type QueryParams = {
   page: number;
@@ -123,7 +124,7 @@ export default function ProductListing() {
                 <td>
                   <img
                     className="dsc-product-listing-image"
-                    src={product.imgUrl}
+                    src={product.imgUrl || imgPlaceholder}
                     alt={product.name}
                   />
                 </td>

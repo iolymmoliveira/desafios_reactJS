@@ -1,6 +1,6 @@
 import "./styles.css";
 import Button from "../../../components/Button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms";
@@ -66,7 +66,8 @@ export default function ProductForm() {
   });
 
   const params = useParams();
-  const isEditing = params.productId !== "create";
+  const navigate = useNavigate();
+  const isEditing = !!params.productId && params.productId !== "create";
   const [categories, setCategories] = useState<CategoryDTO[]>([]);
 
   function handleInputChange(event: any) {
@@ -105,6 +106,19 @@ export default function ProductForm() {
       setFormData(formDataValidated);
       return;
     }
+
+    const requestBody = forms.toValues(formData);
+
+    const request = isEditing
+      ? productService.updateRequest({
+          ...requestBody,
+          id: Number(params.productId),
+        })
+      : productService.insertRequest(requestBody);
+
+    request.then(() => {
+      navigate("/admin/products");
+    });
   }
 
   return (
@@ -171,9 +185,18 @@ export default function ProductForm() {
 
             <div className="dsc-form-container-buttons">
               <Link to="/admin/products">
-                <Button text="Cancelar" variant="secondary" className="dsc-product-form-button" />
+                <Button
+                  text="Cancelar"
+                  variant="secondary"
+                  className="dsc-product-form-button"
+                />
               </Link>
-              <Button text="Salvar" variant="primary" type="submit" className="dsc-product-form-button" />
+              <Button
+                text="Salvar"
+                variant="primary"
+                type="submit"
+                className="dsc-product-form-button"
+              />
             </div>
           </form>
         </div>

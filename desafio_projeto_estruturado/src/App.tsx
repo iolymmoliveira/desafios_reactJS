@@ -73,8 +73,8 @@ function App() {
               <Route index element={<Navigate to="/admin/home" />} />
               <Route path="home" element={<AdminHome />} />
               <Route path="products" element={<ProductListing />} />
-              <Route path="products/:productId" element={<ProductForm />} />
               <Route path="products/create" element={<ProductForm />} />
+              <Route path="products/:productId" element={<ProductForm />} />
             </Route>
           </Routes>
         </HistoryRouter>
