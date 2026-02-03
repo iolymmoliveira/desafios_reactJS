@@ -179,4 +179,15 @@ main {
 .dsc-form-select {
   padding: unset !important;
 }
+
+.dsc-form-global-error {
+  width: 100%;
+  border: var(--dsc-border-error);
+  color: var(--dsc-color-error);
+  border-radius: var(--dsc-border-radius-sm);
+  font: var(--dsc-font-regular-xs);
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+}
 /* **************************************************** */
