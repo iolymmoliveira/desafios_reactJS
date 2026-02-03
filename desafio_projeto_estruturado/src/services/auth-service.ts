@@ -51,24 +51,14 @@ export function getAccessTokenPayload(): AccessTokenPayloadDTO | undefined {
 }
 
 export function isAuthenticated(): boolean {
-  let tokenPayload = getAccessTokenPayload();
+  const tokenPayload = getAccessTokenPayload();
   return tokenPayload && tokenPayload.exp * 1000 > Date.now() ? true : false;
 }
 
 export function hasAnyRoles(roles: RoleEnum[]): boolean {
-  if (roles.length === 0) {
-    return true;
-  }
+  if (roles.length === 0) return true;
 
   const tokenPayload = getAccessTokenPayload();
 
-  if (tokenPayload !== undefined) {
-    for (let i = 0; i < roles.length; i++) {
-      if (tokenPayload.authorities.includes(roles[i])) {
-        return true;
-      }
-    }
-  }
-
-  return false;
+  return tokenPayload !== undefined && roles.some(role => tokenPayload.authorities.includes(role));
 }
